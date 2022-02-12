@@ -13,11 +13,22 @@ __meta__ = {
 
 [node name="Gold" type="Label" parent="."]
 margin_left = 23.0
-margin_top = 21.0
+margin_top = 15.0
 margin_right = 182.0
 margin_bottom = 35.0
 text = "Argent : 0 $"
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Problems" type="Label" parent="."]
+margin_left = 689.0
+margin_top = 18.0
+margin_right = 1007.0
+margin_bottom = 53.0
+text = "Problème"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
