@@ -45,9 +45,14 @@ func previous_appart():
 	next_appart.rect_position = Vector2(1024, 0)
 	next_appart.modulate.a = 0
 	$EnterTweenPos.interpolate_property(next_appart, "rect_position", next_appart.rect_position, Vector2(0, 0), 0.3)
-	$EnterTweenModulate.interpolate_property(next_appart, "modulate", next_appart.modulate, Color(255, 255, 255, 255), 0.3)
+	$EnterTweenModulate.interpolate_property(next_appart, "modulate", next_appart.modulate, Color(1, 1, 1, 1), 0.3)
 	$ExitTweenPos.interpolate_property(current_appart, "rect_position", current_appart.rect_position, Vector2(-1024, 0), 0.3)
-	$ExitTweenModulate.interpolate_property(current_appart, "modulate", current_appart.modulate, Color(255, 255, 255, 0), 0.3)
+	$ExitTweenModulate.interpolate_property(current_appart, "modulate", current_appart.modulate, Color(1, 1, 1, 0), 0.3)
+	
+	$EnterTweenPos.start()
+	$EnterTweenModulate.start()
+	$ExitTweenPos.start()
+	$ExitTweenModulate.start()
 
 func next_appart():
 	var current_appart = appart_list[appart_idx]
@@ -56,7 +61,11 @@ func next_appart():
 	next_appart.rect_position = Vector2(-1024, 0)
 	next_appart.modulate.a = 0
 	$EnterTweenPos.interpolate_property(next_appart, "rect_position", next_appart.rect_position, Vector2(0, 0), 0.3)
-	$EnterTweenModulate.interpolate_property(next_appart, "modulate", next_appart.modulate, Color(255, 255, 255, 255), 0.3)
+	$EnterTweenModulate.interpolate_property(next_appart, "modulate", next_appart.modulate, Color(1, 1, 1, 1), 0.3)
 	$ExitTweenPos.interpolate_property(current_appart, "rect_position", current_appart.rect_position, Vector2(1024, 0), 0.3)
-	$ExitTweenModulate.interpolate_property(current_appart, "modulate", current_appart.modulate, Color(255, 255, 255, 0), 0.3)
-
+	$ExitTweenModulate.interpolate_property(current_appart, "modulate", current_appart.modulate, Color(1, 1, 1, 0), 0.3)
+	
+	$EnterTweenPos.start()
+	$EnterTweenModulate.start()
+	$ExitTweenPos.start()
+	$ExitTweenModulate.start()
