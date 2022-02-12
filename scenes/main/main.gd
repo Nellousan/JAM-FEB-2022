@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var gold = 0
 onready var gold_label = $Gold
