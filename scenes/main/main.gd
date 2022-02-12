@@ -12,14 +12,12 @@ func _ready():
 	
 	var appart = appart_scene.instance()
 	$Apparts.add_child(appart)
-	appart.show_panels()
-	appart.init_appart(5000, 3, 20, 5, "res://scenes/appart/sprites/appart01.png")
+	appart.init_appart(5000, 3, 20, 5, "res://scenes/appart/sprites/appart02.png")
 	appart_list.append(appart)
 	
 	appart = appart_scene.instance()
 	$Apparts.add_child(appart)
 	appart.rect_position = Vector2(-5000, 0)
-	appart.show_panels()
 	appart.init_appart(7000, 4, 50, 10, "res://scenes/appart/sprites/appart01.png")
 	appart_list.append(appart)
 	
@@ -38,7 +36,7 @@ func _physics_process(delta):
 	if Input.get_action_strength("ui_left"):
 		earn_money(50)
 
-func previous_appart():
+func next_appart():
 	var current_appart = appart_list[appart_idx]
 	appart_idx = (appart_idx - 1) % appart_list.size()
 	var next_appart = appart_list[appart_idx]
@@ -54,7 +52,7 @@ func previous_appart():
 	$ExitTweenPos.start()
 	$ExitTweenModulate.start()
 
-func next_appart():
+func previous_appart():
 	var current_appart = appart_list[appart_idx]
 	appart_idx = (appart_idx + 1) % appart_list.size()
 	var next_appart = appart_list[appart_idx]

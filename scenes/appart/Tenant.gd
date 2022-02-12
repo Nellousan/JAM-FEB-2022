@@ -8,7 +8,7 @@ func _ready():
 	var interior = load("res://scenes/appart/sprites/interior01.png")
 	$Background.texture = interior
 	$Label.text = "Vacant"
-	$Button.text = String(appart.appart_rent * 3) + "$"
+	$Button.set_price(appart.appart_rent * 3)
 # warning-ignore:return_value_discarded
 	$Button.connect("pressed", self, "find_tenant")
 	

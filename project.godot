@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Button",
+"class": "BuyButton",
+"language": "GDScript",
+"path": "res://scenes/buy_button/BuyButton.gd"
+}, {
 "base": "Node",
 "class": "TickWaiter",
 "language": "GDScript",
 "path": "res://scenes/tick_waiter/TickWaiter.gd"
 } ]
 _global_script_class_icons={
+"BuyButton": "",
 "TickWaiter": ""
 }
 

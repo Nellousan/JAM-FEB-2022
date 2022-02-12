@@ -33,9 +33,11 @@ func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, fo
 	for i in range(appart_count):
 		var new_tenant = tenant_scene.instance()
 		$LeftPanel/HBoxContainer.add_child(new_tenant)
-		new_tenant.get_node("Background").rect_scale = Vector2(5, 5)
 		tenants.append(new_tenant)
 	get_node("../../Timer").connect("timeout", self, "timer_ticks")
+	var buy_button = $Center/BuyInterface/VBoxContainer/Button
+	buy_button.set_price(buy_price)
+	buy_button.connect("pressed", self, "buy_appart")
 
 func show_panels():
 	left_panel.show()
@@ -53,3 +55,10 @@ func timer_ticks():
 func harvest_money():
 	get_node("/root/main").earn_money(money_to_harvest)
 	money_to_harvest = 0
+
+func buy_appart():
+	$Center/BuyInterface.queue_free()
+	$Center/CenterContainer.visible = true
+	$LeftPanel.visible = true
+	$RightPanel.visible = true
+	get_node("/root/main").gold -= buy_price
