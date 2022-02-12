@@ -1,11 +1,11 @@
-extends Node2D
+extends Control
 
 var gold = 0
 onready var gold_label = $Gold
 onready var timer = $Timer
 
 func _ready():
-	pass
+	timer.start(1)
 
 func earn_money(amount):
 	gold += amount
@@ -14,5 +14,4 @@ func earn_money(amount):
 func _physics_process(delta):
 	if Input.get_action_strength("ui_left"):
 		earn_money(50)
-		print(timer)
 
