@@ -20,6 +20,7 @@ func find_tenant():
 	$Label.text = "Searching"
 	$Button.text = "..."
 	$Button.disabled = true
+	get_node("/root/main").earn_money(-appart.appart_rent * 3)
 	$Button.disconnect("pressed", self, "find_tenant")
 
 func tenant_found():

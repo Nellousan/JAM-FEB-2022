@@ -17,6 +17,10 @@ onready var foreground = $Center/Sprites/Foreground
 var money_to_harvest = 0
 var owned = false
 
+func _ready():
+# warning-ignore:return_value_discarded
+	$Center/CenterContainer/VBoxContainer/Button.connect("pressed", self, "harvest_money")
+
 func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, foreground_image_path):
 	buy_price = _buy_price
 	appart_count = _appart_count
@@ -47,5 +51,5 @@ func timer_ticks():
 			money_to_harvest += appart_rent
 
 func harvest_money():
-	get_parent().earn_money(money_to_harvest)
+	get_node("/root/main").earn_money(money_to_harvest)
 	money_to_harvest = 0
