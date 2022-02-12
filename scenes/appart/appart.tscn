@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="appart" type="Node2D"]
+
+[node name="background" type="Sprite" parent="."]
+
+[node name="foreground" type="Sprite" parent="."]
