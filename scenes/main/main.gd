@@ -6,8 +6,12 @@ onready var gold_label = $Gold
 func _ready():
 	pass
 
+func earn_money(amount):
+	gold += amount
+	var text = "Argent = " + String(gold) + " $"
+	gold_label.set_text(text)
+	
+
 func _physics_process(delta):
 	if Input.get_action_strength("ui_left"):
-		gold += 10
-		var text = "Argent = " + String(gold) + " $"
-		gold_label.set_text(text)
+		earn_money(50)
