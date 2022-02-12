@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "TickWaiter",
+"language": "GDScript",
+"path": "res://scenes/tick_waiter/TickWaiter.gd"
+} ]
+_global_script_class_icons={
+"TickWaiter": ""
+}
+
 [application]
 
 config/name="Jam- Feb- 2022"

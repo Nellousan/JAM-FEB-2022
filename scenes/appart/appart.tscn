@@ -1,7 +1,121 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
 
-[node name="appart" type="Node2D"]
+[ext_resource path="res://scenes/appart/sprites/appart01.png" type="Texture" id=1]
+[ext_resource path="res://scenes/appart/sprites/background.png" type="Texture" id=2]
+[ext_resource path="res://scenes/appart/Label.gd" type="Script" id=3]
+[ext_resource path="res://scenes/appart/appart.gd" type="Script" id=4]
 
-[node name="background" type="Sprite" parent="."]
+[node name="Appart" type="Control"]
+rect_min_size = Vector2( 1024, 600 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="foreground" type="Sprite" parent="."]
+[node name="Center" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.5
+margin_top = -300.0
+margin_right = 112.5
+margin_bottom = 300.0
+rect_min_size = Vector2( 225, 400 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprites" type="Control" parent="Center"]
+margin_left = 112.0
+margin_top = 300.0
+margin_right = 112.0
+margin_bottom = 300.0
+rect_scale = Vector2( 5, 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Background" type="TextureRect" parent="Center/Sprites"]
+modulate = Color( 0.627451, 0.627451, 0.627451, 1 )
+margin_left = -22.0
+margin_top = -40.0
+margin_right = 23.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Foreground" type="TextureRect" parent="Center/Sprites"]
+margin_left = -22.0
+margin_top = -40.0
+margin_right = 23.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Center"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Center/CenterContainer"]
+margin_left = 84.0
+margin_top = 31.0
+margin_right = 140.0
+margin_bottom = 69.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Center/CenterContainer/VBoxContainer"]
+margin_right = 56.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Center/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 56.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+align = 1
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="Center/CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 56.0
+margin_bottom = 38.0
+text = "Collect"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftPanel" type="CenterContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -200.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftPanel"]
+margin_top = 200.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightPanel" type="CenterContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -200.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightPanel"]
+margin_top = 200.0
+margin_bottom = 200.0

@@ -4,6 +4,8 @@
 [ext_resource path="res://scenes/main/Gold.gd" type="Script" id=2]
 
 [node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,3 +34,49 @@ align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Apparts" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+margin_top = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 440.0
+margin_right = 584.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviousButton" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+size_flags_horizontal = 3
+text = "Previous"
+
+[node name="NextButton" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 70, 20 )
+size_flags_horizontal = 3
+text = "Next"
+
+[node name="ExitTweenPos" type="Tween" parent="."]
+
+[node name="ExitTweenModulate" type="Tween" parent="."]
+
+[node name="EnterTweenPos" type="Tween" parent="."]
+
+[node name="EnterTweenModulate" type="Tween" parent="."]
