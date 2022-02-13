@@ -12,13 +12,13 @@ func _ready():
 	
 	var appart = appart_scene.instance()
 	$Apparts.add_child(appart)
-	appart.init_appart(5000, 3, 20, 5, "res://scenes/appart/sprites/appart02.png", "res://scenes/appart/sprites/interior02.png")
+	appart.init_appart(5000, 2, 20, 5, "res://scenes/appart/sprites/appart02.png", "res://scenes/appart/sprites/interior02.png")
 	appart_list.append(appart)
 	
 	appart = appart_scene.instance()
 	$Apparts.add_child(appart)
 	appart.rect_position = Vector2(-5000, 0)
-	appart.init_appart(7000, 4, 50, 10, "res://scenes/appart/sprites/appart01.png", "res://scenes/appart/sprites/interior01.png")
+	appart.init_appart(20000, 3, 50, 10, "res://scenes/appart/sprites/appart01.png", "res://scenes/appart/sprites/interior01.png")
 	appart_list.append(appart)
 	
 	timer.start(1)
