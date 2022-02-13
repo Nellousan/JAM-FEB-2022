@@ -5,5 +5,5 @@ func _ready():
 
 func _process(_delta):
 	var main = get_parent()
-	var text = "Argent = " + String(main.gold) + " $"
+	var text = "Money = " + String(main.gold) + " $"
 	set_text(text)
