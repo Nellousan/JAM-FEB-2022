@@ -37,11 +37,13 @@ func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, fo
 		var new_tenant = tenant_scene.instance()
 		$LeftPanel/VBoxContainer/HBoxContainer.add_child(new_tenant)
 		tenants.append(new_tenant)
+# warning-ignore:return_value_discarded
 	get_node("../../Timer").connect("timeout", self, "timer_ticks")
 	var buy_button = $Center/BuyInterface/VBoxContainer/Button
 	buy_button.set_price(buy_price)
 	buy_button.connect("pressed", self, "buy_appart")
 	$LeftPanel/VBoxContainer/VBoxContainer/Income.text = "Rent: " + String(appart_rent) + "$"
+# warning-ignore:integer_division
 	$LeftPanel/VBoxContainer/VBoxContainer/Fee.text = "Fee: " + String(buy_price / 5) + "$"
 	$LeftPanel/VBoxContainer/VBoxContainer/Apartments.text = "Apts: " + String(appart_count)
 

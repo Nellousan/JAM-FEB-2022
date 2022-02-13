@@ -10,7 +10,7 @@ func set_price(_price):
 	price = _price
 	text = String(price) + "$"
 
-func _process(delta):
+func _process(_delta):
 	if (main.gold >= price):
 		disabled = false
 	else:
