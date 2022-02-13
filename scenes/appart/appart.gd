@@ -17,27 +17,33 @@ onready var foreground = $Center/Sprites/Foreground
 var money_to_harvest = 0
 var owned = false
 
+var interior_texture
+
 func _ready():
 # warning-ignore:return_value_discarded
 	$Center/CenterContainer/VBoxContainer/Button.connect("pressed", self, "harvest_money")
 
-func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, foreground_image_path):
+func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, foreground_image_path, interior_image_path):
 	buy_price = _buy_price
 	appart_count = _appart_count
 	appart_rent = _appart_rent
 	tenant_find_ticks = _tenant_find_ticks
 	var foreground_image = load(foreground_image_path)
 	foreground.texture = foreground_image
+	interior_texture = load(interior_image_path)
 	var tenant_scene = load("res://scenes/appart/Tenant.tscn")
 # warning-ignore:unused_variable
 	for i in range(appart_count):
 		var new_tenant = tenant_scene.instance()
-		$LeftPanel/HBoxContainer.add_child(new_tenant)
+		$LeftPanel/VBoxContainer/HBoxContainer.add_child(new_tenant)
 		tenants.append(new_tenant)
 	get_node("../../Timer").connect("timeout", self, "timer_ticks")
 	var buy_button = $Center/BuyInterface/VBoxContainer/Button
 	buy_button.set_price(buy_price)
 	buy_button.connect("pressed", self, "buy_appart")
+	$LeftPanel/VBoxContainer/VBoxContainer/Income.text = "Rent: " + String(appart_rent) + "$"
+	$LeftPanel/VBoxContainer/VBoxContainer/Fee.text = "Fee: " + String(buy_price / 5) + "$"
+	$LeftPanel/VBoxContainer/VBoxContainer/Apartments.text = "Apts: " + String(appart_count)
 
 func show_panels():
 	left_panel.show()
@@ -62,3 +68,6 @@ func buy_appart():
 	$LeftPanel.visible = true
 	$RightPanel.visible = true
 	get_node("/root/main").gold -= buy_price
+
+func add_manager():
+	pass
