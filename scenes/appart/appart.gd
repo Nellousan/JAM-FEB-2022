@@ -19,6 +19,14 @@ var owned = false
 
 var interior_texture
 
+var issue_scene = preload("res://scenes/appart/Issue.tscn")
+
+class Issue:
+	var issue: String
+	var price: int
+
+var issues = []
+
 func _ready():
 # warning-ignore:return_value_discarded
 	$Center/CenterContainer/VBoxContainer/Button.connect("pressed", self, "harvest_money")
@@ -46,6 +54,30 @@ func init_appart(_buy_price, _appart_count, _appart_rent, _tenant_find_ticks, fo
 # warning-ignore:integer_division
 	$LeftPanel/VBoxContainer/VBoxContainer/Fee.text = "Fee: " + String(buy_price / 5) + "$"
 	$LeftPanel/VBoxContainer/VBoxContainer/Apartments.text = "Apts: " + String(appart_count)
+	
+	var issue = Issue.new()
+	issue.issue = "Repair the pipes."
+# warning-ignore:integer_division
+	issue.price = buy_price / 3
+	issues.append(issue)
+	
+	issue = Issue.new()
+	issue.issue = "Repair the light."
+# warning-ignore:integer_division
+	issue.price = buy_price / 10
+	issues.append(issue)
+	
+	issue = Issue.new()
+	issue.issue = "Fix the boiler."
+# warning-ignore:integer_division
+	issue.price = buy_price / 2
+	issues.append(issue)
+	
+	issue = Issue.new()
+	issue.issue = "Improve thermal insulation."
+# warning-ignore:integer_division
+	issue.price = buy_price / 2
+	issues.append(issue)
 
 func show_panels():
 	left_panel.show()
@@ -73,3 +105,10 @@ func buy_appart():
 
 func add_manager():
 	pass
+
+func create_issue():
+	var issue_node = issue_scene.instance()
+	$RightPanel/VBoxContainer.add_child(issue_node)
+	$RightPanel/VBoxContainer.queue_sort()
+	var issue = issues[randi() % issues.size()]
+	issue_node.init(issue.issue, issue.price)

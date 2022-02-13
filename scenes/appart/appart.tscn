@@ -170,18 +170,18 @@ margin_bottom = 32.0
 margin_top = 36.0
 margin_bottom = 50.0
 
-[node name="RightPanel" type="CenterContainer" parent="."]
-visible = false
+[node name="RightPanel" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+margin_left = -319.0
 margin_top = -200.0
 margin_bottom = 200.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RightPanel"]
-margin_top = 200.0
-margin_bottom = 200.0

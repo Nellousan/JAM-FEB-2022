@@ -23,7 +23,6 @@ func find_tenant():
 	$Button.disconnect("pressed", self, "find_tenant")
 
 func tenant_found():
-	
 	var tenant = load("res://scenes/appart/sprites/tenant0" + String(randi() % 2 + 1) + ".png")
 	$Background/TenantTexture.texture = tenant
 	$Label.text = "Occupied"
@@ -32,6 +31,17 @@ func tenant_found():
 # warning-ignore:return_value_discarded
 	$Button.connect("pressed", self, "expel_tenant")
 	is_vacant = false
+	var waiter = TickWaiter.new()
+	add_child(waiter)
+	waiter.wait_for_ticks(randi() % 60)
+	waiter.connect("ticks_finished", self, "on_tick_waiter_finished")
 
 func expel_tenant():
 	pass
+
+func on_tick_waiter_finished():
+	var waiter = TickWaiter.new()
+	add_child(waiter)
+	waiter.wait_for_ticks(randi() % 60 + 30)
+	waiter.connect("ticks_finished", self, "on_tick_waiter_finished")
+	appart.create_issue()
